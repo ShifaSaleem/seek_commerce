@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1017516339118",
+    "project_id": "seek-commerce",
+    "storage_bucket": "seek-commerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017516339118:android:412d0be0d31bee4eabe23f",
+        "android_client_info": {
+          "package_name": "com.example.seek_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaDNRAxdiR389NzDcIWjkM747X4Pddxw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
