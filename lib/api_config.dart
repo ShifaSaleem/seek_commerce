@@ -21,6 +21,13 @@ class ApiConfig {
     };
   }
 
+  Future<Map<String, String>> getHeadersForMultipart() async {
+    String? token = await storage.read(key: 'token');
+    return {
+      'Authorization': 'Bearer $token',
+    };
+  }
+
 }
 
 

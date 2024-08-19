@@ -27,37 +27,25 @@ class UserService {
     return await http.post(url, headers: await config.getHeaders());
   }
 
-  Future<http.Response> completeProfile(User user, File profileImage) async {
-    //Uint8List imageBytes = await File(user.profileImage!).readAsBytes();
-   // String base64Image = base64Encode(imageBytes);
+  Future<http.StreamedResponse> completeProfile(User user, File profileImage) async {
+    final url = Uri.parse('$baseUrl/complete-profile');
+    final request = http.MultipartRequest('POST', url)
+      ..headers.addAll(await config.getHeadersForMultipart())
+      ..fields['name'] = user.name
+      ..files.add(await http.MultipartFile.fromPath('profile_image', profileImage.path));
 
-    final response = await http.post(
-      Uri.parse('$baseUrl/complete-profile'),
-      body: jsonEncode({
-        'name': user.name,
-        'profile_image': profileImage,
-      }),
-      headers: await config.getHeaders(),
-    );
-
-    return response;
+    return await request.send();
   }
 
-  Future<http.Response> updateProfile(String name, String email, File profileImage) async {
-    //Uint8List imageBytes = await File(profileImage as String).readAsBytes();
-    //String base64Image = base64Encode(imageBytes);
+  Future<http.StreamedResponse> updateProfile(String name, String email, File profileImage) async {
+    final url = Uri.parse('$baseUrl/update-profile');
+    final request = http.MultipartRequest('PUT', url)
+      ..headers.addAll(await config.getHeadersForMultipart())
+      ..fields['name'] = name
+      ..fields['email'] = email
+      ..files.add(await http.MultipartFile.fromPath('profile_image', profileImage.path));
 
-    final response = await http.put(
-      Uri.parse('$baseUrl/update-profile'),
-      body: jsonEncode({
-        'name': name,
-        'email': email,
-        'profile_image': profileImage,
-      }),
-      headers: await config.getHeaders(),
-    );
-
-    return response;
+    return await request.send();
   }
 
   Future<User?> getProfile(int id) async {
