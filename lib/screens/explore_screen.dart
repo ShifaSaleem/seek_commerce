@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as custom_carousel_controller;
 import 'package:http/http.dart' as http;
 import 'package:seek_commerce/theme/app_theme.dart';
 
@@ -22,6 +23,7 @@ class ExploreScreen extends StatefulWidget {
 }
 
 class _ExploreScreenState extends State<ExploreScreen> {
+  final custom_carousel_controller.CarouselController controller = custom_carousel_controller.CarouselController();
   ApiConfig config = ApiConfig();
   final String baseUrl = ApiConfig().baseUrl;
   List<Product> products = [];
@@ -136,19 +138,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
         title: Text('Explore', style: headerText24()),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CartScreen()));
+                  MaterialPageRoute(builder: (context) => const CartScreen()));
             },
           ),
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NotificationsScreen()));
+                      builder: (context) => const NotificationsScreen()));
             },
           ),
           IconButton(
@@ -210,9 +212,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      value: _selectedMinPrice != null
-                          ? _selectedMinPrice.toString()
-                          : null,
+                      value: _selectedMinPrice?.toString(),
                       items: priceRanges.map((String price) {
                         return DropdownMenuItem<String>(
                           value: price.split('-').first,
@@ -241,9 +241,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      value: _selectedMaxPrice != null
-                          ? _selectedMaxPrice.toString()
-                          : null,
+                      value: _selectedMaxPrice?.toString(),
                       items: priceRanges.map((String price) {
                         return DropdownMenuItem<String>(
                           value: price.split('-').last,
@@ -272,9 +270,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      value: _selectedRating != null
-                          ? _selectedRating.toString()
-                          : null,
+                      value: _selectedRating?.toString(),
                       items: ratings.map((String rating) {
                         return DropdownMenuItem<String>(
                           value: rating,
@@ -332,7 +328,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                         product: product)));
                           },
                           child: Card(
-                            margin: EdgeInsets.all(8.0),
+                            margin: const EdgeInsets.all(8.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [

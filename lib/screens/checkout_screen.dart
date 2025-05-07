@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seek_commerce/components/button.dart';
 import 'package:seek_commerce/input_validators/input_validators.dart';
-import 'package:seek_commerce/provider/auth_provider.dart';
 import 'package:seek_commerce/screens/payment_screen.dart';
-import 'package:seek_commerce/screens/signup_screen.dart';
-import 'package:seek_commerce/screens/home_screen.dart';
 import 'package:seek_commerce/theme/app_theme.dart';
 import '../components/input_fields.dart';
 
@@ -26,7 +23,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       appBar: AppBar(
         title : Text('Checkout', style: headerText24(),),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -38,32 +35,32 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             DefaultTextField(
-              prefixIcon: Icon(Icons.location_city),
+              prefixIcon: const Icon(Icons.location_city),
               labelText: 'Shipping Address',
               hintText: 'Enter Shipping Address',
               textInputType: TextInputType.streetAddress,
               controller: _shippingController,
               validator: validateEmail,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             DefaultTextField(
-              prefixIcon: Icon(Icons.location_city),
+              prefixIcon: const Icon(Icons.location_city),
               labelText: 'Billing Address',
               hintText: 'Enter Billing Address',
               textInputType: TextInputType.streetAddress,
               controller: _billingController,
               validator: validateEmail,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             DefaultTextField(
-              prefixIcon: Icon(Icons.phone),
+              prefixIcon: const Icon(Icons.phone),
               labelText: 'Contact No.',
               hintText: 'Enter Contact No',
               textInputType: TextInputType.phone,
               controller: _contactController,
               validator: validateEmail,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             DefaultButton(
               labelText: 'Checkout',
               textStyle: headerText16()

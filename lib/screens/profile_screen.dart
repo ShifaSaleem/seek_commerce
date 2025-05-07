@@ -49,19 +49,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
             style: headerText24().copyWith(color: textLightColor)),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CartScreen()));
+                  MaterialPageRoute(builder: (context) => const CartScreen()));
             },
           ),
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NotificationsScreen()));
+                      builder: (context) => const NotificationsScreen()));
             },
           ),
         ],
@@ -92,7 +92,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         bottom: 0,
                         right: 0,
                         child: IconButton(
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                           onPressed: _pickImage,
                         ),
                       ),
@@ -100,16 +100,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: const Icon(Icons.person),
                   labelText: 'Full Name',
                   hintText: 'Enter Full Name',
                   textInputType: TextInputType.name,
                   controller: _nameController,
                   validator: validateName,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email),
                   labelText: 'Email',
                   hintText: 'username@gmail.com',
                   textInputType: TextInputType.emailAddress,
@@ -118,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Edit Profile',
                 textStyle: headerText16().copyWith(color: textLightColor),
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen(user: user)));
                 },
                 backgroundColor: primaryColor),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             OutlineButton(
                 labelText: 'Change Password',
                 textStyle: headerText16().copyWith(color: primaryColor),
@@ -134,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ChangePasswordScreen()));
                 },
                 borderColor: primaryColor),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             DefaultButton(
                 labelText: 'Logout',
                 textStyle: headerText16().copyWith(color: textLightColor),

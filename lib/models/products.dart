@@ -1,5 +1,6 @@
 import 'package:seek_commerce/models/reviews.dart';
 
+
 class Product {
   final int id;
   final String name;

@@ -38,25 +38,25 @@ class _SignupScreenState extends State<SignupScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: const Icon(Icons.person),
                   labelText: 'Full Name',
                   hintText: 'Enter Full Name',
                   textInputType: TextInputType.name,
                   controller: _nameController,
                   validator: validateName,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email),
                   labelText: 'Email',
                   hintText: 'username@gmail.com',
                   textInputType: TextInputType.emailAddress,
                   controller: _emailController,
                   validator: validateEmail,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 PasswordTextField(
-                  prefixIcon: Icon(Icons.password),
+                  prefixIcon: const Icon(Icons.password),
                   labelText: 'Password',
                   hintText: 'Enter Password',
                   textInputType: TextInputType.visiblePassword,
@@ -65,7 +65,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Signup',
                 textStyle: headerText16().copyWith(color: textLightColor),
@@ -82,7 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 alignment: Alignment.bottomCenter,
                 child: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                     },
                     child: Text(
                       "Already have an account? Login",

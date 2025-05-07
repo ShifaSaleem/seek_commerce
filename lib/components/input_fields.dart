@@ -24,10 +24,10 @@ class DefaultTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '$labelText',
+          labelText,
           style: headerText14(),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           height: 46,
           decoration: const BoxDecoration(
@@ -46,7 +46,7 @@ class DefaultTextField extends StatelessWidget {
               validator: validator,
               decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 14.0),
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 14.0),
                   border: const OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
@@ -91,10 +91,10 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${widget.labelText}',
+          widget.labelText,
           style: headerText14(),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           height : 46,
           decoration: const BoxDecoration(
@@ -114,7 +114,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
               validator: widget.validator,
               decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 14.0),
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 14.0),
                   border: const OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),

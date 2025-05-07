@@ -1,8 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/notifications.dart';
@@ -14,7 +11,7 @@ class NotificationService {
   final FirebaseMessaging _fcm = FirebaseMessaging.instance;
   ApiConfig config = ApiConfig();
   final String baseUrl = ApiConfig().baseUrl;
-  final FlutterSecureStorage storage = FlutterSecureStorage();
+  final FlutterSecureStorage storage = const FlutterSecureStorage();
 
 
 

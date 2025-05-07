@@ -6,13 +6,13 @@ import '../theme/app_theme.dart';
 class TopProducts extends StatelessWidget {
   final Product product;
 
-  TopProducts({required this.product});
+  const TopProducts({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 220.0, // Adjust width as needed
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -2,14 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mime/mime.dart';
 import '../components/button.dart';
 import '../components/input_fields.dart';
 import '../input_validators/input_validators.dart';
 import '../models/users.dart';
 import '../provider/auth_provider.dart';
 import '../theme/app_theme.dart';
-import 'login_screen.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   final User user;
@@ -73,14 +71,14 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                             ? FileImage(_profileImage!)
                             : null,
                         child: _profileImage == null
-                            ? Icon(Icons.person, size: 80)
+                            ? const Icon(Icons.person, size: 80)
                             : null,
                       ),
                       Positioned(
                         bottom: 0,
                         right: 0,
                         child: IconButton(
-                          icon: Icon(Icons.camera_alt),
+                          icon: const Icon(Icons.camera_alt),
                           onPressed: _pickImage,
                         ),
                       ),
@@ -88,16 +86,16 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   ),
                 ),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: const Icon(Icons.person),
                   labelText: 'Full Name',
                   hintText: 'Enter Full Name',
                   textInputType: TextInputType.name,
                   controller: _nameController,
                   validator: validateName,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email),
                   labelText: 'Email',
                   hintText: 'username@gmail.com',
                   textInputType: TextInputType.emailAddress,
@@ -106,7 +104,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Complete Profile',
                 textStyle: headerText16().copyWith(color: textLightColor),

@@ -15,7 +15,7 @@ class OrderDetailScreen extends StatefulWidget {
 }
 
 class _OrderDetailScreenState extends State<OrderDetailScreen> {
-  ProductService _productService = ProductService();
+  final ProductService _productService = ProductService();
   @override
   Widget build(BuildContext context) {
     String id = widget.order.id.toString();
@@ -23,19 +23,19 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
       appBar: AppBar(
         title: Text('Order Details', style: headerText24(),),
         leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed : (){
               Navigator.pop(context);
             }
         ),
       ),
       body: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('#$id', style: headerText20()),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment:
               MainAxisAlignment.spaceBetween,
@@ -47,7 +47,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     style: headerText14()),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment:
               MainAxisAlignment.spaceBetween,
@@ -59,7 +59,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     style: headerText14()),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment:
               MainAxisAlignment.spaceBetween,
@@ -71,16 +71,16 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     style: headerText14()),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text('Ordered Products', style: headerText18()),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
           ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: widget.order.orderProducts.length,
             itemBuilder: (context, index) {
               OrderProduct orderProduct = widget.order.orderProducts[index];
-              int p_id = orderProduct.productId;
-              Product product = _productService.fetchProduct(p_id) as Product;
+              int pId = orderProduct.productId;
+              Product product = _productService.fetchProduct(pId) as Product;
                 return ListTile(
                   leading: Image.network(product.imagePaths[0], width: 54, height: 50,),
                   title: Text(product.name, style: headerText16(),),

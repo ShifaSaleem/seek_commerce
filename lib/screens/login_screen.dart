@@ -3,7 +3,6 @@ import 'package:seek_commerce/components/button.dart';
 import 'package:seek_commerce/input_validators/input_validators.dart';
 import 'package:seek_commerce/provider/auth_provider.dart';
 import 'package:seek_commerce/screens/signup_screen.dart';
-import 'package:seek_commerce/screens/home_screen.dart';
 import 'package:seek_commerce/theme/app_theme.dart';
 import '../components/input_fields.dart';
 import 'forgot_password_screen.dart';
@@ -38,26 +37,26 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email),
                   labelText: 'Email',
                   hintText: 'username@gmail.com',
                   textInputType: TextInputType.emailAddress,
                   controller: _emailController,
                   validator: validateEmail,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 PasswordTextField(
-                  prefixIcon: Icon(Icons.password),
+                  prefixIcon: const Icon(Icons.password),
                   labelText: 'Password',
                   hintText: 'Enter Password',
                   textInputType: TextInputType.visiblePassword,
                   controller: _passController,
                   validator: validatePassword,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 TextButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()));
                     },
                     child: Text(
                       'Forgot Password? Reset',
@@ -65,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     )),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Login',
                 textStyle: headerText16().copyWith(color: textLightColor),
@@ -81,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 alignment: Alignment.bottomCenter,
                 child: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignupScreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignupScreen()));
                     },
                     child: Text(
                       "Don't have an account? Signup",

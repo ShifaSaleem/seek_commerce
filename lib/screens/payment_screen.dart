@@ -6,7 +6,6 @@ import 'package:seek_commerce/theme/app_theme.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:seek_commerce/components/button.dart';
 import '../api_config.dart';
-import '../models/orders.dart';
 import '../services/order_service.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -31,7 +30,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   final String baseUrl = ApiConfig().baseUrl;
   int isSelected = 0;
   String selectedPaymentMethod = 'stripe';
-  OrderService _orderService = OrderService();
+  final OrderService _orderService = OrderService();
   String? paymentMethodId;
   String? paymentIntentId;
 
@@ -106,7 +105,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
           style: headerText24(),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -151,7 +150,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       child: Container(
         width: 100,
         height: 40,
-        margin: EdgeInsets.only(top: 10, bottom: 10),
+        margin: const EdgeInsets.only(top: 10, bottom: 10),
         decoration: BoxDecoration(
             color: isSelected == index ? primaryColor : iconColor,
             borderRadius: BorderRadius.circular(30)),

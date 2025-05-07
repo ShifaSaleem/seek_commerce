@@ -40,7 +40,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       appBar: AppBar(
         title: Text('Edit Profile', style: headerText24()),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: (){
             Navigator.pop(context);
           },
@@ -72,7 +72,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         bottom: 0,
                         right: 0,
                         child: IconButton(
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                           onPressed: _pickImage,
                         ),
                       ),
@@ -80,16 +80,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                 ),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: const Icon(Icons.person),
                   labelText: 'Full Name',
                   hintText: 'Enter Full Name',
                   textInputType: TextInputType.name,
                   controller: _nameController,
                   validator: validateName,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 DefaultTextField(
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email),
                   labelText: 'Email',
                   hintText: 'username@gmail.com',
                   textInputType: TextInputType.emailAddress,
@@ -98,7 +98,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Save Changes',
                 textStyle: headerText16().copyWith(color: textLightColor),

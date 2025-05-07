@@ -67,7 +67,7 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         title: Text('Cart', style: headerText24()),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -78,9 +78,9 @@ class _CartScreenState extends State<CartScreen> {
         child: Column(
           children: [
             _loadingCart || _loadingCharges
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : _cart == null
-                    ? Center(child: Text('Cart not found'))
+                    ? const Center(child: Text('Cart not found'))
                     : Column(
                         children: [
                           Expanded(
@@ -91,7 +91,7 @@ class _CartScreenState extends State<CartScreen> {
                                 return Slidable(
                                   key: ValueKey(item.id),
                                   endActionPane: ActionPane(
-                                    motion: BehindMotion(),
+                                    motion: const BehindMotion(),
                                     children: [
                                       SlidableAction(
                                         onPressed: (context) async {
@@ -128,7 +128,7 @@ class _CartScreenState extends State<CartScreen> {
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 5,
                                   blurRadius: 7,
-                                  offset: Offset(0, 3),
+                                  offset: const Offset(0, 3),
                                 ),
                               ],
                             ),
@@ -136,7 +136,7 @@ class _CartScreenState extends State<CartScreen> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 _charges == null
-                                    ? SizedBox.shrink()
+                                    ? const SizedBox.shrink()
                                     : Column(
                                         children: _charges!.map((charge) {
                                           return Row(
@@ -152,7 +152,7 @@ class _CartScreenState extends State<CartScreen> {
                                           );
                                         }).toList(),
                                       ),
-                                Divider(),
+                                const Divider(),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -163,14 +163,14 @@ class _CartScreenState extends State<CartScreen> {
                                         style: headerText16()),
                                   ],
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 DefaultButton(
                                   labelText: 'Checkout',
                                   textStyle: headerText16()
                                       .copyWith(color: textLightColor),
                                   onPressed: () {
-                                    double _totalAmount = _calculateTotalPrice();
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => CheckoutScreen(amount: _totalAmount)));
+                                    double totalAmount = _calculateTotalPrice();
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => CheckoutScreen(amount: totalAmount)));
                                   },
                                   backgroundColor: primaryColor,
                                 ),

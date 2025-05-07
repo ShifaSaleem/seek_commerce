@@ -42,7 +42,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       appBar: AppBar(
         title: Text('Change Password', style: headerText24()),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: (){
             Navigator.pop(context);
           },
@@ -57,25 +57,25 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 PasswordTextField(
-                  prefixIcon: Icon(Icons.password),
+                  prefixIcon: const Icon(Icons.password),
                   labelText: 'Current Password',
                   hintText: 'Enter Current Password',
                   textInputType: TextInputType.visiblePassword,
                   controller: _currentPassController,
                   validator: validatePassword,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 PasswordTextField(
-                  prefixIcon: Icon(Icons.password),
+                  prefixIcon: const Icon(Icons.password),
                   labelText: 'New Password',
                   hintText: 'Enter New Password',
                   textInputType: TextInputType.visiblePassword,
                   controller: _newPassController,
                   validator: validatePassword,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 PasswordTextField(
-                  prefixIcon: Icon(Icons.password),
+                  prefixIcon: const Icon(Icons.password),
                   labelText: 'Confirm New Password',
                   hintText: 'Re-enter New Password',
                   textInputType: TextInputType.visiblePassword,
@@ -84,7 +84,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Save Changes',
                 textStyle: headerText16().copyWith(color: textLightColor),

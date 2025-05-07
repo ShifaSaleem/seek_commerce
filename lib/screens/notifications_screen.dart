@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:seek_commerce/theme/app_theme.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../models/notifications.dart';
 import '../services/notification_service.dart';
 
@@ -36,7 +35,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       appBar: AppBar(
         title: Text('Notifications', style: headerText24(),),
         leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed : (){
               Navigator.pop(context);
             }
@@ -46,11 +45,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         future: _notificationsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No notifications'));
+            return const Center(child: Text('No notifications'));
           } else {
             final notifications = snapshot.data!;
             return ListView.builder(

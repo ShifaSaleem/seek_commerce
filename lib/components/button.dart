@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_theme.dart';
 
 class DefaultButton extends StatelessWidget {
   //final Icon icon;
@@ -22,7 +21,7 @@ class DefaultButton extends StatelessWidget {
         style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all(backgroundColor),
             padding: WidgetStateProperty.all(
-                EdgeInsets.symmetric(vertical: 4, horizontal: 14)),
+                const EdgeInsets.symmetric(vertical: 4, horizontal: 14)),
             minimumSize: WidgetStateProperty.all<Size>(
                 Size(MediaQuery.of(context).size.width, 50)),
             maximumSize: WidgetStateProperty.all<Size>(

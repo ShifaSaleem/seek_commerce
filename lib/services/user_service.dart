@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../models/users.dart';
 import '../api_config.dart';
 import '../screens/login_screen.dart';
@@ -67,11 +66,11 @@ class UserService {
     final response = await http.get(Uri.parse('$baseUrl/verify-email/$token'));
     if (response.statusCode == 200) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Email verified successfully'),
       ));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Failed to verify email'),
       ));
     }
@@ -100,11 +99,11 @@ class UserService {
     );
     if (response.statusCode == 200) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Password reset successfully'),
       ));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Failed to reset password'),
       ));
     }

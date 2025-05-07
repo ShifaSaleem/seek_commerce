@@ -19,8 +19,8 @@ class OrdersScreen extends StatefulWidget {
 class _OrdersScreenState extends State<OrdersScreen> {
   int isSelected = 0;
   String selectedCategory = 'pending';
-  OrderService _orderService = OrderService();
-  ProductService _productService = ProductService();
+  final OrderService _orderService = OrderService();
+  final ProductService _productService = ProductService();
   late Future<List<Order>> pendingOrders;
   late Future<List<Order>> activeOrders;
   late Future<List<Order>> completeOrders;
@@ -42,25 +42,25 @@ class _OrdersScreenState extends State<OrdersScreen> {
             style: headerText24().copyWith(color: textLightColor)),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CartScreen()));
+                  MaterialPageRoute(builder: (context) => const CartScreen()));
             },
           ),
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NotificationsScreen()));
+                      builder: (context) => const NotificationsScreen()));
             },
           ),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(children: [
           Row(
             children: [
@@ -94,7 +94,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
       child: Container(
         width: 100,
         height: 40,
-        margin: EdgeInsets.only(top: 10, bottom: 10),
+        margin: const EdgeInsets.only(top: 10, bottom: 10),
         decoration: BoxDecoration(
             color: isSelected == index ? primaryColor : iconColor,
             borderRadius: BorderRadius.circular(30)),
@@ -125,8 +125,8 @@ class _OrdersScreenState extends State<OrdersScreen> {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               Order order = snapshot.data![index];
-              int p_id = order.orderProducts[0].productId;
-              Product product = _productService.fetchProduct(p_id) as Product;
+              int pId = order.orderProducts[0].productId;
+              Product product = _productService.fetchProduct(pId) as Product;
               return GestureDetector(
                 onTap: () {
                   Navigator.push(

@@ -27,7 +27,7 @@ class AuthProvider with ChangeNotifier {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Signup Successful. Verify your email to continue.'),
       ));
-      Navigator.pushNamed(context, '/login');
+      Navigator.pushNamed(context, '/verify-email');
 
     } else {
       // Handle registration error

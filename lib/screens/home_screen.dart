@@ -26,10 +26,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   List screens = [
-    HomeScreenWidget(),
-    ExploreScreen(),
-    OrdersScreen(),
-    ProfileScreen()
+    const HomeScreenWidget(),
+    const ExploreScreen(),
+    const OrdersScreen(),
+    const ProfileScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -102,19 +102,19 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
         ]),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const CartScreen()));
             },
           ),
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationsScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const NotificationsScreen()));
             },
           ),
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               showSearch(
                 context: context,
@@ -201,7 +201,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                       return const Center(child: Text('No products found'));
                     } else {
-                      return Container(
+                      return SizedBox(
                         height: 200.0, // Adjust height as needed
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,

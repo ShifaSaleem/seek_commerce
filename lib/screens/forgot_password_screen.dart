@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:seek_commerce/components/button.dart';
 import 'package:seek_commerce/input_validators/input_validators.dart';
-import 'package:seek_commerce/provider/auth_provider.dart';
-import 'package:seek_commerce/screens/reset_password_screen.dart';
-import 'package:seek_commerce/screens/signup_screen.dart';
-import 'package:seek_commerce/screens/home_screen.dart';
 import 'package:seek_commerce/theme/app_theme.dart';
 import '../components/input_fields.dart';
 import '../services/user_service.dart';
-import 'forgot_password_screen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -54,7 +49,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     'Forgot Password?',
                     style: headerText28(),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'Confirm your email, we will send you a password reset link.',
                     style: bodyText14(),
@@ -63,14 +58,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               ),
             ),
             DefaultTextField(
-              prefixIcon: Icon(Icons.email),
+              prefixIcon: const Icon(Icons.email),
               labelText: 'Email',
               hintText: 'username@gmail.com',
               textInputType: TextInputType.emailAddress,
               controller: _emailController,
               validator: validateEmail,
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             DefaultButton(
                 labelText: 'Get Reset Email',
                 textStyle: headerText16().copyWith(color: textLightColor),

@@ -23,7 +23,7 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (_) => AuthProvider(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -96,17 +96,17 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginScreen(),
-        '/register': (context) => SignupScreen(),
-        '/forgot-password': (context) => ForgotPasswordScreen(),
-        '/change-password': (context) => ChangePasswordScreen(),
+        '/': (context) => const SplashScreen(),
+        '/register': (context) => const SignupScreen(),
+        '/forgot-password': (context) => const ForgotPasswordScreen(),
+        '/change-password': (context) => const ChangePasswordScreen(),
         '/reset-password': (context) => ResetPasswordScreen(
             token: ModalRoute.of(context)!.settings.arguments as String),
         '/verify-email': (context) => EmailVerificationScreen(
             token: ModalRoute.of(context)!.settings.arguments as String),
-        '/home': (context) => HomeScreen(),
+        '/home': (context) => const HomeScreen(),
       },
-      home: const SplashScreen(),
+      //home: const SplashScreen(),
     );
   }
 }
@@ -144,7 +144,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
         child: Center(
-            child: Image.asset('assets/images/logo_white.svg'
+            child: Image.asset('assets/images/logo_white.svg',
+                width: 100,
+                height: 100,
                 //image: AssetImage('assets/images/logo_white.svg'),
                 )),
       ),

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as custom_carousel_controller;
 import 'package:seek_commerce/components/button.dart';
 import 'package:seek_commerce/models/products.dart';
 import 'package:seek_commerce/theme/app_theme.dart';
@@ -17,6 +18,7 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  final custom_carousel_controller.CarouselController controller = custom_carousel_controller.CarouselController();
   final UserService _userService = UserService();
   final CartService _cartService = CartService();
   int _quantity = 1;
@@ -27,10 +29,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     try {
       await _cartService.addItem(widget.product.id, _quantity);
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Added to cart')));
+          .showSnackBar(const SnackBar(content: Text('Added to cart')));
     } catch (e) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Failed to add to cart')));
+          .showSnackBar(const SnackBar(content: Text('Failed to add to cart')));
     }
   }
 
@@ -54,7 +56,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       appBar: AppBar(
         title: Text(widget.product.name, style: headerText24()),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed : (){
             Navigator.pop(context);
           }
@@ -72,19 +74,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               viewportFraction: 1.0,
               enlargeCenterPage: false,
               enableInfiniteScroll: true,
-              autoPlayInterval: Duration(seconds: 3),
+              autoPlayInterval: const Duration(seconds: 3),
             ),
             items: widget.product.imagePaths.map((imagePath) {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     child: Image.network(
                       '$baseUrl/$imagePath',
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
-                        return Center(child: Text('Image not available'));
+                        return const Center(child: Text('Image not available'));
                       },
                     ),
                   );
@@ -92,7 +94,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               );
             }).toList(),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           // Product Details
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -106,17 +108,17 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       widget.product.name,
                       style: headerText20(),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       '\$${widget.product.price.toStringAsFixed(2)}',
                       style: headerText16().copyWith(color: primaryColor),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     Text(
                       widget.product.description,
                       style: bodyText14(),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                   ],
                 ),
                 DefaultButton(
@@ -124,12 +126,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     textStyle: headerText16().copyWith(color: textLightColor),
                     onPressed: _addToCart,
                     backgroundColor: primaryColor),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.remove),
+                      icon: const Icon(Icons.remove),
                       onPressed: _decrementQuantity,
                     ),
                     Text('$_quantity', style: headerText14()),
@@ -152,7 +154,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 'Reviews',
                 style: headerText18(),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               // List of reviews
               widget.product.reviews!.isEmpty
                   ? Text('No reviews yet', style: bodyText14())
